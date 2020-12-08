@@ -1,10 +1,49 @@
 import { Button, Grid } from "@material-ui/core";
-import React from "react";
+import React, { ChangeEvent, useState, FormEvent } from "react";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import { Wrapper } from "./Login.styles";
 import TextField from "@material-ui/core/TextField/TextField";
+import firebase from "../../config/firebase";
+import { useHistory } from "react-router-dom";
+
+interface IFormValue {
+  email: string;
+  password: string;
+}
 
 const Login: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [form, setForm] = useState<IFormValue>({ email: "", password: "" });
+  const history = useHistory();
+
+  const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
+    setForm({ ...form, [e.currentTarget.name]: e.currentTarget.value });
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+    await firebase
+      .auth()
+      .signInWithEmailAndPassword(form.email, form.password)
+      .then((user) => {
+        user.user?.getIdToken().then((res) => {
+          localStorage.setItem("token", res.toString());
+        });
+        setIsError(false);
+        setIsLoading(false);
+        history.replace("/");
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+        setIsError(true);
+        setIsLoading(false);
+      });
+  };
+
   return (
     <Wrapper>
       <Grid container className="h-100">
@@ -36,18 +75,22 @@ const Login: React.FC = () => {
                   <div className="form-separator">
                     <p>OR</p>
                   </div>
-                  <form noValidate={false}>
+                  {isError && <p>Email or password is invalid!</p>}
+                  <form onSubmit={handleSubmit}>
                     <div className="form-item">
                       <TextField
+                        name="email"
                         id="outlined-basic"
                         label="Email"
                         variant="outlined"
                         fullWidth
                         size="small"
+                        onChange={handleChangeInput}
                       />
                     </div>
                     <div className="form-item">
                       <TextField
+                        name="password"
                         id="outlined-password-input"
                         label="Password"
                         type="password"
@@ -55,6 +98,7 @@ const Login: React.FC = () => {
                         variant="outlined"
                         fullWidth
                         size="small"
+                        onChange={handleChangeInput}
                       />
                     </div>
                     <div className="form-item">
@@ -67,6 +111,8 @@ const Login: React.FC = () => {
                         variant="contained"
                         className="color-black"
                         fullWidth
+                        type="submit"
+                        disabled={isLoading}
                       >
                         Login
                       </Button>

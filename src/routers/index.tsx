@@ -1,12 +1,26 @@
 import React from "react";
-import Authed from "./authed";
-import Public from "./public";
+import Home from "../components/Home/Home";
+import Login from "../components/Login/Login";
+import SignUp from "../components/SignUp/SignUp";
 
-const Routes: React.FC = () => {
-  const loggedIn = false;
-  //  const loggedIn = localStorage.getItem('token');
-  //   const user = JSON.parse(localStorage.getItem('user'));
-  return loggedIn ? <Authed /> : <Public />;
-};
-
-export default Routes;
+// eslint-disable-next-line import/no-anonymous-default-export
+export default [
+  {
+    path: "/",
+    exact: true,
+    component: () => <Home />,
+    protected: null,
+  },
+  {
+    path: "/login",
+    exact: true,
+    component: () => <Login />,
+    protected: "guest",
+  },
+  {
+    path: "/signup",
+    exact: true,
+    component: () => <SignUp />,
+    protected: "guest",
+  },
+];

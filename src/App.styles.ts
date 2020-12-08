@@ -1,11 +1,12 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-#root{width: 100%;}
-html {
+
+  html{
     height: 100%;
     width: 100%;
   }
+
   body {
     background-size: cover;
     margin: 0;
@@ -19,13 +20,16 @@ html {
     font-family: 'Catamaran', sans-serif;
     box-sizing: border-box;
   }
+
+  #root{
+    height: 100%;
+    width: 100%;
+  }
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   height: 100%;
-  width: 100%;
 `;

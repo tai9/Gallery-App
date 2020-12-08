@@ -39,7 +39,7 @@ const SignUp: React.FC = () => {
                   </div>
                   <form noValidate={false}>
                     <div className="form-item">
-                      <Grid xs={6}>
+                      <Grid item xs={6}>
                         <TextField
                           id="outlined-basic"
                           label="First name"
@@ -49,9 +49,9 @@ const SignUp: React.FC = () => {
                         />
                       </Grid>
 
-                      <Grid xs={1}></Grid>
+                      <Grid item xs={1}></Grid>
 
-                      <Grid xs={6}>
+                      <Grid item xs={6}>
                         <TextField
                           id="outlined-basic"
                           label="Last name"
