@@ -1,14 +1,16 @@
 import React from "react";
-import { GlobalStyle, Wrapper } from "./App.styles";
-import { Login } from "./components/Login/Login";
-
+import { GlobalStyle } from "./App.styles";
+import { BrowserRouter as Router } from "react-router-dom";
+import Routers from "./routers";
+import Footer from "./components/Footer/Footer";
 const App: React.FC = () => {
   return (
     <>
       <GlobalStyle />
-      <Wrapper>
-        <Login />
-      </Wrapper>
+      <Router>
+        <Routers />
+      </Router>
+      <Footer />
     </>
   );
 };
