@@ -1,8 +1,16 @@
 import React from "react";
-import "./App.css";
+import { GlobalStyle, Wrapper } from "./App.styles";
+import { Login } from "./components/Login/Login";
 
 const App: React.FC = () => {
-  return <div></div>;
+  return (
+    <>
+      <GlobalStyle />
+      <Wrapper>
+        <Login />
+      </Wrapper>
+    </>
+  );
 };
 
 export default App;
