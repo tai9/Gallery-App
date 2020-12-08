@@ -9,6 +9,7 @@ import { AnimatePresence } from "framer-motion";
 import GuestRoute from "./routers/GuestRoute";
 import AuthRoute from "./routers/AuthRoute";
 import AnimatedRoute from "./routers/AnimatedRoute";
+import NotFound from "./pages/NotFound/NotFound";
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -67,7 +68,9 @@ const App: React.FC = () => {
               );
             })}
 
-            <Route path="*">{/* <NotFound /> */}</Route>
+            <Route path="*">
+              <NotFound />
+            </Route>
           </Switch>
         </AnimatePresence>
         <Footer />
