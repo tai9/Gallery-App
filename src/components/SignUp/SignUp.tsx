@@ -1,10 +1,10 @@
 import { Button, Grid } from "@material-ui/core";
 import React from "react";
 import FacebookIcon from "@material-ui/icons/Facebook";
-import { Wrapper } from "./Login.styles";
+import { Wrapper } from "./SignUp.styles";
 import TextField from "@material-ui/core/TextField/TextField";
 
-const Login: React.FC = () => {
+const SignUp: React.FC = () => {
   return (
     <Wrapper>
       <Grid container className="h-100">
@@ -17,8 +17,9 @@ const Login: React.FC = () => {
                     <a href="/">
                       <img className="" src="images/logo.png" alt="logo" />
                     </a>
-                    <h1>LOGIN</h1>
-                    <p>Hi there! 👋👋</p>
+                    <h1>SIGN UP</h1>
+                    <span>Already have an account? </span>
+                    <a href="/login">Login</a>
                   </div>
                   <div className="form-group">
                     <Button
@@ -30,7 +31,7 @@ const Login: React.FC = () => {
                       disableRipple
                     >
                       <FacebookIcon />
-                      <span className="ml-12">Login with Facebook</span>
+                      <span className="ml-12">Sign up with Facebook</span>
                     </Button>
                   </div>
                   <div className="form-separator">
@@ -38,9 +39,41 @@ const Login: React.FC = () => {
                   </div>
                   <form noValidate={false}>
                     <div className="form-item">
+                      <Grid xs={6}>
+                        <TextField
+                          id="outlined-basic"
+                          label="First name"
+                          variant="outlined"
+                          size="small"
+                          fullWidth
+                        />
+                      </Grid>
+
+                      <Grid xs={1}></Grid>
+
+                      <Grid xs={6}>
+                        <TextField
+                          id="outlined-basic"
+                          label="Last name"
+                          variant="outlined"
+                          size="small"
+                          fullWidth
+                        />
+                      </Grid>
+                    </div>
+                    <div className="form-item">
                       <TextField
                         id="outlined-basic"
                         label="Email"
+                        variant="outlined"
+                        fullWidth
+                        size="small"
+                      />
+                    </div>
+                    <div className="form-item">
+                      <TextField
+                        id="outlined-basic"
+                        label="Username"
                         variant="outlined"
                         fullWidth
                         size="small"
@@ -57,25 +90,17 @@ const Login: React.FC = () => {
                         size="small"
                       />
                     </div>
-                    <div className="form-item">
-                      <a href="/">
-                        <p>Forgot your password?</p>
-                      </a>
-                    </div>
+
                     <div className="form-item">
                       <Button
                         variant="contained"
                         className="color-black"
                         fullWidth
                       >
-                        Login
+                        Sign Up
                       </Button>
                     </div>
                   </form>
-                  <div className="form-item text-center">
-                    <span>Don't have an account? </span>
-                    <a href="/signup">Sign Up</a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -86,4 +111,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default SignUp;

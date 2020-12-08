@@ -46,10 +46,12 @@ export const Wrapper = styled.div`
 
   .form-item {
     margin-bottom: 24px;
+    display:flex;
+    justify-content: space-between;
   }
 
-  .form-item a {
-    text-align: right;
+  .flex-end{
+    justify-content: flex-end;
   }
 
   .color-black {
@@ -71,6 +73,10 @@ export const Wrapper = styled.div`
 
   .txt-transform {
     text-transform: none;
+    }
+
+    .mr-0-10{
+        margin: 0 10px;
     }
   }
 `;
