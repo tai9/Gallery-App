@@ -3,6 +3,7 @@ import React from "react";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import { Wrapper } from "./SignUp.styles";
 import TextField from "@material-ui/core/TextField/TextField";
+import { motion } from "framer-motion";
 
 const SignUp: React.FC = () => {
   return (
@@ -21,7 +22,11 @@ const SignUp: React.FC = () => {
                     <span>Already have an account? </span>
                     <a href="/login">Login</a>
                   </div>
-                  <div className="form-group">
+                  <motion.div
+                    className="form-group"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
                     <Button
                       className="btn-facebook txt-transform"
                       variant="contained"
@@ -33,7 +38,7 @@ const SignUp: React.FC = () => {
                       <FacebookIcon />
                       <span className="ml-12">Sign up with Facebook</span>
                     </Button>
-                  </div>
+                  </motion.div>
                   <div className="form-separator">
                     <p>OR</p>
                   </div>
@@ -91,7 +96,11 @@ const SignUp: React.FC = () => {
                       />
                     </div>
 
-                    <div className="form-item">
+                    <motion.div
+                      className="form-item"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
                       <Button
                         variant="contained"
                         className="color-black"
@@ -99,7 +108,7 @@ const SignUp: React.FC = () => {
                       >
                         Sign Up
                       </Button>
-                    </div>
+                    </motion.div>
                   </form>
                 </div>
               </div>

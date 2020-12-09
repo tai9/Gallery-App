@@ -5,6 +5,7 @@ import { Wrapper } from "./Login.styles";
 import TextField from "@material-ui/core/TextField/TextField";
 import firebase from "../../config/firebase";
 import { useHistory } from "react-router-dom";
+import { motion } from "framer-motion";
 
 interface IFormValue {
   email: string;
@@ -56,10 +57,20 @@ const Login: React.FC = () => {
                     <a href="/">
                       <img className="" src="images/logo.png" alt="logo" />
                     </a>
-                    <h1>LOGIN</h1>
+                    <motion.h1
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 5 }}
+                    >
+                      LOGIN
+                    </motion.h1>
                     <p>Hi there! 👋👋</p>
                   </div>
-                  <div className="form-group">
+                  <motion.div
+                    className="form-group"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
                     <Button
                       className="btn-facebook txt-transform"
                       variant="contained"
@@ -71,7 +82,7 @@ const Login: React.FC = () => {
                       <FacebookIcon />
                       <span className="ml-12">Login with Facebook</span>
                     </Button>
-                  </div>
+                  </motion.div>
                   <div className="form-separator">
                     <p>OR</p>
                   </div>
@@ -106,7 +117,11 @@ const Login: React.FC = () => {
                         <p>Forgot your password?</p>
                       </a>
                     </div>
-                    <div className="form-item">
+                    <motion.div
+                      className="form-item"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
                       <Button
                         variant="contained"
                         className="color-black"
@@ -116,7 +131,7 @@ const Login: React.FC = () => {
                       >
                         Login
                       </Button>
-                    </div>
+                    </motion.div>
                   </form>
                   <div className="form-item text-center">
                     <span>Don't have an account? </span>
