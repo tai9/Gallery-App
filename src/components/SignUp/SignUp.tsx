@@ -61,7 +61,6 @@ const SignUp: React.FC = () => {
                     <div className="form-item">
                       <Grid item xs={6}>
                         <TextField
-                          id="outlined-basic"
                           label="First name"
                           variant="outlined"
                           size="small"
@@ -73,7 +72,6 @@ const SignUp: React.FC = () => {
 
                       <Grid item xs={6}>
                         <TextField
-                          id="outlined-basic"
                           label="Last name"
                           variant="outlined"
                           size="small"
@@ -83,7 +81,6 @@ const SignUp: React.FC = () => {
                     </div>
                     <div className="form-item">
                       <TextField
-                        id="outlined-basic"
                         label="Email"
                         variant="outlined"
                         fullWidth
@@ -92,7 +89,6 @@ const SignUp: React.FC = () => {
                     </div>
                     <div className="form-item">
                       <TextField
-                        id="outlined-basic"
                         label="Username"
                         variant="outlined"
                         fullWidth
