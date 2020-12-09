@@ -12,8 +12,8 @@ interface IFormValue {
 }
 
 const Login: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
   const [form, setForm] = useState<IFormValue>({ email: "", password: "" });
   const history = useHistory();
 
