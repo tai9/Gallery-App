@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
   }
 
   .center-block {
-    width: 40%;
+    width: 100%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -77,6 +77,18 @@ export const Wrapper = styled.div`
 
     .mr-0-10{
         margin: 0 10px;
+    }
+
+    @media only screen and (min-width: 768px){
+      .center-block{
+        width: 50%;
+      }
+    }
+
+    @media only screen and (min-width: 992px){
+      .center-block{
+        width:30%;
+      }
     }
   }
 `;

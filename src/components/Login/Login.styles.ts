@@ -1,7 +1,6 @@
-import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const Wrapper = styled(motion.div)`
+export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 
@@ -19,7 +18,7 @@ export const Wrapper = styled(motion.div)`
   }
 
   .center-block {
-    width: 40%;
+    width: 100%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -72,6 +71,18 @@ export const Wrapper = styled(motion.div)`
 
   .txt-transform {
     text-transform: none;
+    }
+  }
+
+  @media only screen and (min-width: 768px){
+    .center-block{
+      width: 50%;
+    }
+  }
+
+  @media only screen and (min-width: 992px){
+    .center-block{
+      width:30%;
     }
   }
 `;
