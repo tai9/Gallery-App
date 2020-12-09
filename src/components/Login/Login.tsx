@@ -4,7 +4,7 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import { Wrapper } from "./Login.styles";
 import TextField from "@material-ui/core/TextField/TextField";
 import firebase from "../../config/firebase";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 
 interface IFormValue {
@@ -45,6 +45,12 @@ const Login: React.FC = () => {
       });
   };
 
+  const logoAnimations = {
+    rest: { y: 0 },
+    hover: { y: -10 },
+    pressed: { scale: 0.95 },
+  };
+
   return (
     <Wrapper>
       <Grid container className="h-100">
@@ -55,15 +61,17 @@ const Login: React.FC = () => {
                 <div className="center-block">
                   <div className="text-center">
                     <a href="/">
-                      <img className="" src="images/logo.png" alt="logo" />
+                      <motion.img
+                        className=""
+                        src="images/logo.png"
+                        alt="logo"
+                        variants={logoAnimations}
+                        initial="rest"
+                        whileHover="hover"
+                        whileTap="pressed"
+                      />
                     </a>
-                    <motion.h1
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 5 }}
-                    >
-                      LOGIN
-                    </motion.h1>
+                    <h1>LOGIN</h1>
                     <p>Hi there! 👋👋</p>
                   </div>
                   <motion.div
@@ -135,7 +143,7 @@ const Login: React.FC = () => {
                   </form>
                   <div className="form-item text-center">
                     <span>Don't have an account? </span>
-                    <a href="/signup">Sign Up</a>
+                    <Link to="/signup">Sign Up</Link>
                   </div>
                 </div>
               </div>

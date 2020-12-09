@@ -4,6 +4,13 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import { Wrapper } from "./SignUp.styles";
 import TextField from "@material-ui/core/TextField/TextField";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
+const logoAnimations = {
+  rest: { y: 0 },
+  hover: { y: -10 },
+  pressed: { scale: 0.95 },
+};
 
 const SignUp: React.FC = () => {
   return (
@@ -16,11 +23,19 @@ const SignUp: React.FC = () => {
                 <div className="center-block">
                   <div className="text-center">
                     <a href="/">
-                      <img className="" src="images/logo.png" alt="logo" />
+                      <motion.img
+                        className=""
+                        src="images/logo.png"
+                        alt="logo"
+                        variants={logoAnimations}
+                        initial="rest"
+                        whileHover="hover"
+                        whileTap="pressed"
+                      />
                     </a>
                     <h1>SIGN UP</h1>
                     <span>Already have an account? </span>
-                    <a href="/login">Login</a>
+                    <Link to="/login">Login</Link>
                   </div>
                   <motion.div
                     className="form-group"

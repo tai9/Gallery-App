@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { GlobalStyle, Wrapper } from "./App.styles";
-import { Switch, Route, useLocation } from "react-router-dom";
+import { Switch, Route, useLocation, Link } from "react-router-dom";
 import routes from "./routers";
 import Footer from "./components/Footer/Footer";
 // import firebase from "./config/firebase";
