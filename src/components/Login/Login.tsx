@@ -1,12 +1,11 @@
 import { Button, Grid } from "@material-ui/core";
 import React, { ChangeEvent, useState, FormEvent } from "react";
-import FacebookIcon from "@material-ui/icons/Facebook";
 import { Wrapper } from "./Login.styles";
 import TextField from "@material-ui/core/TextField/TextField";
 import firebase from "../../config/firebase";
 import { Link, useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
-
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 interface IFormValue {
   email: string;
   password: string;
@@ -17,6 +16,13 @@ const Login: React.FC = () => {
   const [isError, setIsError] = useState<boolean>(false);
   const [form, setForm] = useState<IFormValue>({ email: "", password: "" });
   const history = useHistory();
+
+  // Configure FirebaseUI.
+  const uiConfig = {
+    signInFlow: "popup",
+    signInSuccessUrl: "/",
+    signInOptions: [firebase.auth.FacebookAuthProvider.PROVIDER_ID],
+  };
 
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.currentTarget.name]: e.currentTarget.value });
@@ -75,22 +81,16 @@ const Login: React.FC = () => {
                     <p>Hi there! 👋👋</p>
                   </div>
                   <motion.div
-                    className="form-group"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <Button
-                      className="btn-facebook txt-transform"
-                      variant="contained"
-                      color="primary"
-                      href="/"
-                      fullWidth
-                      disableRipple
-                    >
-                      <FacebookIcon />
-                      <span className="ml-12">Login with Facebook</span>
-                    </Button>
+                    <StyledFirebaseAuth
+                      uiConfig={uiConfig}
+                      firebaseAuth={firebase.auth()}
+                      className="btn-facebook"
+                    />
                   </motion.div>
+
                   <div className="form-separator">
                     <p>OR</p>
                   </div>

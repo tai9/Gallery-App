@@ -61,12 +61,13 @@ export const Wrapper = styled.div`
     background-color: rgb(0 0 0 / 0.77);
   }
 
-  .btn-facebook {
-    background-color: #1778f2;
+  .btn-facebook button{
+    background-color: #1778f2 !important;
+    border-radius: 4px;
   }
 
-  .btn-facebook:hover {
-    background-color: #0968df;
+  .btn-facebook button:hover {
+    background-color: #0968df !important;
   }
 
   .txt-transform {

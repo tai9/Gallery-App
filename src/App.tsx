@@ -1,42 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GlobalStyle, Wrapper } from "./App.styles";
-import { Switch, Route, useLocation, Link } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 import routes from "./routers";
 import Footer from "./components/Footer/Footer";
-// import firebase from "./config/firebase";
+import firebase from "./config/firebase";
 import AppContext from "./store/AppContext";
 import { AnimatePresence } from "framer-motion";
 import GuestRoute from "./routers/GuestRoute";
 import AuthRoute from "./routers/AuthRoute";
 import AnimatedRoute from "./routers/AnimatedRoute";
 import NotFound from "./pages/NotFound/NotFound";
+import Loading from "./pages/Loading/Loading";
 
 const App: React.FC = () => {
   const location = useLocation();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState({});
-  // const [isLoading, setIsLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [user, setUser] = useState<firebase.UserInfo>();
+  const [isLoading, setIsLoading] = useState(true);
 
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   firebase.auth().onAuthStateChanged((user) => {
-  //     if (user) {
-  //       setIsLoggedIn(true);
-  //       setUser(user);
-  //       setIsLoading(false);
-  //     } else {
-  //       setIsLoggedIn(false);
-  //       setUser({});
-  //       setIsLoading(false);
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    setIsLoading(true);
+    const unregisterAuthObserver = firebase
+      .auth()
+      .onAuthStateChanged((user) => {
+        setUser(user as firebase.UserInfo);
+        setIsLoggedIn(!!user);
+        setIsLoading(false);
+      });
+    return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
+  }, []);
 
-  // if (isLoading) return <Loading />;
+  // const handleLogout = () => {
+  //   firebase.auth().signOut();
+  //   setIsLoggedIn(false);
+  // };
+
+  if (isLoading) return <Loading />;
 
   return (
     <AppContext.Provider value={{ isLoggedIn, user }}>
       <GlobalStyle />
+
       <Wrapper>
         <AnimatePresence exitBeforeEnter initial={false}>
           <Switch key={location.pathname} location={location}>
