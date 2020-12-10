@@ -30,6 +30,10 @@ export const Wrapper = styled.div`
     margin-bottom: 24px;
   }
 
+  .text-center h1 {
+    letter-spacing: 0.5rem;
+  }
+
   .text-center img {
     width: 140px;
     height: 70px;
@@ -40,7 +44,7 @@ export const Wrapper = styled.div`
   }
 
   .form-separator {
-    margin: 36px 0;
+    margin: 24px 0;
     text-align: center;
   }
 
@@ -48,10 +52,6 @@ export const Wrapper = styled.div`
     margin-bottom: 24px;
     display:flex;
     justify-content: space-between;
-  }
-
-  .flex-end{
-    justify-content: flex-end;
   }
 
   .color-black {

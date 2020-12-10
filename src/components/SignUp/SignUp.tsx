@@ -3,7 +3,7 @@ import React, { ChangeEvent, FormEvent, useState } from "react";
 import { Wrapper } from "./SignUp.styles";
 import TextField from "@material-ui/core/TextField/TextField";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import firebase from "../../config/firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
@@ -28,7 +28,7 @@ const SignUp: React.FC = () => {
     firstName: "",
     lastName: "",
   });
-  // const history = useHistory();
+  const history = useHistory();
   // Configure FirebaseUI.
   const uiConfig = {
     signInFlow: "popup",
@@ -54,11 +54,15 @@ const SignUp: React.FC = () => {
           photoURL:
             "https://thumbs.dreamstime.com/b/businessman-icon-vector-male-avatar-profile-image-profile-businessman-icon-vector-male-avatar-profile-image-182095609.jpg",
         });
+        setIsLoading(false);
+
+        history.replace("/login");
       })
       .catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
         console.log(errorCode, errorMessage);
+        setIsLoading(false);
       });
   };
 
@@ -83,8 +87,8 @@ const SignUp: React.FC = () => {
                       />
                     </a>
                     <h1>SIGN UP</h1>
-                    <span>Already have an account? </span>
-                    <Link to="/login">Login</Link>
+                    <span>Already have an account? 🤔 </span>
+                    <Link to="/login">Sign in</Link>
                   </div>
                   <motion.div
                     whileHover={{ scale: 1.1 }}
@@ -137,6 +141,7 @@ const SignUp: React.FC = () => {
                         fullWidth
                         size="small"
                         onChange={handleChangeInput}
+                        type="email"
                       />
                     </div>
 
@@ -165,6 +170,7 @@ const SignUp: React.FC = () => {
                         className="color-black"
                         fullWidth
                         type="submit"
+                        disabled={isLoading}
                       >
                         Sign Up
                       </Button>
