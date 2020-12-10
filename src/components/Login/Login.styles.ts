@@ -35,21 +35,30 @@ export const Wrapper = styled.div`
     height: 70px;
   }
 
+  .text-center h1 {
+    letter-spacing: 0.5rem;
+  }
+
   .ml-12 {
     margin-left: 12px;
   }
 
   .form-separator {
-    margin: 36px 0;
+    margin: 24px 0;
     text-align: center;
   }
 
   .form-item {
+    display: flex;
     margin-bottom: 24px;
   }
 
-  .form-item a {
-    text-align: right;
+  .flex-end {
+    justify-content: flex-end;
+  }
+
+  .flex-center {
+    justify-content: center;
   }
 
   .color-black {
@@ -61,7 +70,7 @@ export const Wrapper = styled.div`
     background-color: rgb(0 0 0 / 0.77);
   }
 
-  .btn-facebook button{
+  .btn-facebook button {
     background-color: #1778f2 !important;
     border-radius: 4px;
     max-width: none;
@@ -70,7 +79,7 @@ export const Wrapper = styled.div`
     align-items: center;
   }
 
-  .btn-facebook .firebaseui-container{
+  .btn-facebook .firebaseui-container {
     max-width: none;
   }
 
@@ -82,20 +91,19 @@ export const Wrapper = styled.div`
     background-color: #0968df !important;
   }
 
-  .txt-transform {
+  .text-lower {
     text-transform: none;
-    }
   }
 
-  @media only screen and (min-width: 768px){
-    .center-block{
+  @media only screen and (min-width: 768px) {
+    .center-block {
       width: 50%;
     }
   }
 
-  @media only screen and (min-width: 992px){
-    .center-block{
-      width:30%;
+  @media only screen and (min-width: 992px) {
+    .center-block {
+      width: 30%;
     }
   }
 `;

@@ -6,6 +6,7 @@ import firebase from "../../config/firebase";
 import { Link, useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import ForgotPassword from "./ForgotPassword";
 interface IFormValue {
   email: string;
   password: string;
@@ -14,6 +15,7 @@ interface IFormValue {
 const Login: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [form, setForm] = useState<IFormValue>({ email: "", password: "" });
   const history = useHistory();
 
@@ -77,7 +79,7 @@ const Login: React.FC = () => {
                         whileTap="pressed"
                       />
                     </a>
-                    <h1>LOGIN</h1>
+                    <h1>SIGN IN</h1>
                     <p>Hi there! 👋👋</p>
                   </div>
                   <motion.div
@@ -107,6 +109,7 @@ const Login: React.FC = () => {
                         fullWidth
                         size="small"
                         onChange={handleChangeInput}
+                        type="email"
                       />
                     </div>
                     <div className="form-item">
@@ -123,10 +126,18 @@ const Login: React.FC = () => {
                         onChange={handleChangeInput}
                       />
                     </div>
-                    <div className="form-item">
-                      <a href="/">
-                        <p>Forgot your password?</p>
-                      </a>
+                    <div className="form-item flex-end">
+                      <Button
+                        className="text-lower"
+                        size="small"
+                        onClick={() => setIsOpen(!isOpen)}
+                      >
+                        Forgot your password?
+                      </Button>
+                      <ForgotPassword
+                        isOpen={isOpen}
+                        handleClose={() => setIsOpen(!isOpen)}
+                      />
                     </div>
                     <motion.div
                       className="form-item"
@@ -140,11 +151,11 @@ const Login: React.FC = () => {
                         type="submit"
                         disabled={isLoading}
                       >
-                        Login
+                        Sign in
                       </Button>
                     </motion.div>
                   </form>
-                  <div className="form-item text-center">
+                  <div className="form-item flex-center">
                     <span>Don't have an account? </span>
                     <Link to="/signup">Sign Up</Link>
                   </div>
