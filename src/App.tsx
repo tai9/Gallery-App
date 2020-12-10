@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { GlobalStyle, Wrapper } from "./App.styles";
-import { Switch, Route, useLocation } from "react-router-dom";
+import { Switch, Route, useLocation, Link } from "react-router-dom";
 import routes from "./routers";
 import Footer from "./components/Footer/Footer";
 import firebase from "./config/firebase";
@@ -23,6 +23,8 @@ const App: React.FC = () => {
     const unregisterAuthObserver = firebase
       .auth()
       .onAuthStateChanged((user) => {
+        console.log(user);
+
         setUser(user as firebase.UserInfo);
         setIsLoggedIn(!!user);
         setIsLoading(false);
@@ -40,7 +42,9 @@ const App: React.FC = () => {
   return (
     <AppContext.Provider value={{ isLoggedIn, user }}>
       <GlobalStyle />
-
+      <Link to="/login" onClick={() => firebase.auth().signOut()}>
+        LOGOUT
+      </Link>
       <Wrapper>
         <AnimatePresence exitBeforeEnter initial={false}>
           <Switch key={location.pathname} location={location}>

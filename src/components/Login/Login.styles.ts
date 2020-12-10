@@ -64,6 +64,18 @@ export const Wrapper = styled.div`
   .btn-facebook button{
     background-color: #1778f2 !important;
     border-radius: 4px;
+    max-width: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn-facebook .firebaseui-container{
+    max-width: none;
+  }
+
+  .btn-facebook .firebaseui-card-content {
+    padding: 0;
   }
 
   .btn-facebook button:hover {

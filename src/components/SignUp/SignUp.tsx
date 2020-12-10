@@ -1,10 +1,18 @@
 import { Button, Grid } from "@material-ui/core";
-import React from "react";
-import FacebookIcon from "@material-ui/icons/Facebook";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import { Wrapper } from "./SignUp.styles";
 import TextField from "@material-ui/core/TextField/TextField";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import firebase from "../../config/firebase";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+
+interface IFormValue {
+  email: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+}
 
 const logoAnimations = {
   rest: { y: 0 },
@@ -13,6 +21,47 @@ const logoAnimations = {
 };
 
 const SignUp: React.FC = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [form, setForm] = useState<IFormValue>({
+    email: "",
+    password: "",
+    firstName: "",
+    lastName: "",
+  });
+  // const history = useHistory();
+  // Configure FirebaseUI.
+  const uiConfig = {
+    signInFlow: "popup",
+    signInSuccessUrl: "/",
+    signInOptions: [firebase.auth.FacebookAuthProvider.PROVIDER_ID],
+  };
+  const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
+    setForm({ ...form, [e.currentTarget.name]: e.currentTarget.value });
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+    const displayName: string = form.firstName
+      .trim()
+      .concat(" ", form.lastName.trim());
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(form.email, form.password)
+      .then((res) => {
+        res.user?.updateProfile({
+          displayName: displayName,
+          photoURL:
+            "https://thumbs.dreamstime.com/b/businessman-icon-vector-male-avatar-profile-image-profile-businessman-icon-vector-male-avatar-profile-image-182095609.jpg",
+        });
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+  };
+
   return (
     <Wrapper>
       <Grid container className="h-100">
@@ -38,33 +87,28 @@ const SignUp: React.FC = () => {
                     <Link to="/login">Login</Link>
                   </div>
                   <motion.div
-                    className="form-group"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <Button
-                      className="btn-facebook txt-transform"
-                      variant="contained"
-                      color="primary"
-                      href="/"
-                      fullWidth
-                      disableRipple
-                    >
-                      <FacebookIcon />
-                      <span className="ml-12">Sign up with Facebook</span>
-                    </Button>
+                    <StyledFirebaseAuth
+                      uiConfig={uiConfig}
+                      firebaseAuth={firebase.auth()}
+                      className="btn-facebook"
+                    />
                   </motion.div>
                   <div className="form-separator">
                     <p>OR</p>
                   </div>
-                  <form noValidate={false}>
+                  <form noValidate={false} onSubmit={handleSubmit}>
                     <div className="form-item">
                       <Grid item xs={6}>
                         <TextField
+                          name="firstName"
                           label="First name"
                           variant="outlined"
                           size="small"
                           fullWidth
+                          onChange={handleChangeInput}
                         />
                       </Grid>
 
@@ -72,37 +116,36 @@ const SignUp: React.FC = () => {
 
                       <Grid item xs={6}>
                         <TextField
+                          name="lastName"
                           label="Last name"
                           variant="outlined"
                           size="small"
                           fullWidth
+                          onChange={handleChangeInput}
                         />
                       </Grid>
                     </div>
                     <div className="form-item">
                       <TextField
+                        name="email"
                         label="Email"
                         variant="outlined"
                         fullWidth
                         size="small"
+                        onChange={handleChangeInput}
                       />
                     </div>
+
                     <div className="form-item">
                       <TextField
-                        label="Username"
-                        variant="outlined"
-                        fullWidth
-                        size="small"
-                      />
-                    </div>
-                    <div className="form-item">
-                      <TextField
+                        name="password"
                         id="outlined-password-input"
                         label="Password"
                         type="password"
                         autoComplete="current-password"
                         variant="outlined"
                         fullWidth
+                        onChange={handleChangeInput}
                         size="small"
                       />
                     </div>
@@ -116,6 +159,7 @@ const SignUp: React.FC = () => {
                         variant="contained"
                         className="color-black"
                         fullWidth
+                        type="submit"
                       >
                         Sign Up
                       </Button>
