@@ -106,6 +106,8 @@ const SignUp: React.FC = () => {
                           name="firstName"
                           label="First name"
                           variant="outlined"
+                          required
+                          autoFocus={true}
                           size="small"
                           fullWidth
                           onChange={handleChangeInput}
@@ -119,6 +121,7 @@ const SignUp: React.FC = () => {
                           name="lastName"
                           label="Last name"
                           variant="outlined"
+                          required
                           size="small"
                           fullWidth
                           onChange={handleChangeInput}
@@ -129,6 +132,7 @@ const SignUp: React.FC = () => {
                       <TextField
                         name="email"
                         label="Email"
+                        required
                         variant="outlined"
                         fullWidth
                         size="small"
@@ -142,6 +146,7 @@ const SignUp: React.FC = () => {
                         id="outlined-password-input"
                         label="Password"
                         type="password"
+                        required
                         autoComplete="current-password"
                         variant="outlined"
                         fullWidth

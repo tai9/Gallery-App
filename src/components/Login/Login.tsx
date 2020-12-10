@@ -102,6 +102,8 @@ const Login: React.FC = () => {
                         id="outlined-basic"
                         label="Email"
                         variant="outlined"
+                        autoFocus
+                        required
                         fullWidth
                         size="small"
                         onChange={handleChangeInput}
@@ -115,6 +117,7 @@ const Login: React.FC = () => {
                         type="password"
                         autoComplete="current-password"
                         variant="outlined"
+                        required
                         fullWidth
                         size="small"
                         onChange={handleChangeInput}
