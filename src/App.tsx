@@ -11,6 +11,7 @@ import AuthRoute from "./routers/AuthRoute";
 import AnimatedRoute from "./routers/AnimatedRoute";
 import NotFound from "./pages/NotFound/NotFound";
 import Loading from "./pages/Loading/Loading";
+import Header from "./components/Header/Header";
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -45,6 +46,7 @@ const App: React.FC = () => {
       <Link to="/login" onClick={() => firebase.auth().signOut()}>
         LOGOUT
       </Link>
+      {isLoggedIn && <Header />}
       <Wrapper>
         <AnimatePresence exitBeforeEnter initial={false}>
           <Switch key={location.pathname} location={location}>
