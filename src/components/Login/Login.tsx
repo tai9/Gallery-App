@@ -13,11 +13,11 @@ interface IFormValue {
 }
 
 const Login: React.FC = () => {
+  const history = useHistory();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isError, setIsError] = useState<boolean>(false);
+  const [message, setMessage] = useState<string>("");
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [form, setForm] = useState<IFormValue>({ email: "", password: "" });
-  const history = useHistory();
 
   // Configure FirebaseUI.
   const uiConfig = {
@@ -40,15 +40,12 @@ const Login: React.FC = () => {
         user.user?.getIdToken().then((res) => {
           localStorage.setItem("token", res.toString());
         });
-        setIsError(false);
+        setMessage("");
         setIsLoading(false);
         history.replace("/");
       })
       .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-        setIsError(true);
+        setMessage(error.message);
         setIsLoading(false);
       });
   };
@@ -96,7 +93,9 @@ const Login: React.FC = () => {
                   <div className="form-separator">
                     <p>OR</p>
                   </div>
-                  {isError && <p>Email or password is invalid!</p>}
+                  <div className="error-message">
+                    {message && <p>{message}! 😒😒</p>}
+                  </div>
                   <form onSubmit={handleSubmit}>
                     <div className="form-item">
                       <TextField

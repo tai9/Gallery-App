@@ -50,7 +50,7 @@ export const Wrapper = styled.div`
 
   .form-item {
     margin-bottom: 24px;
-    display:flex;
+    display: flex;
     justify-content: space-between;
   }
 
@@ -63,7 +63,7 @@ export const Wrapper = styled.div`
     background-color: rgb(0 0 0 / 0.77);
   }
 
-  .btn-facebook button{
+  .btn-facebook button {
     background-color: #1778f2 !important;
     border-radius: 4px;
     max-width: none;
@@ -72,11 +72,11 @@ export const Wrapper = styled.div`
     align-items: center;
   }
 
-  .btn-facebook .firebaseui-container{
+  .btn-facebook .firebaseui-container {
     max-width: none;
   }
 
-  .btn-facebook .firebaseui-container{
+  .btn-facebook .firebaseui-container {
     max-width: none;
   }
 
@@ -90,22 +90,27 @@ export const Wrapper = styled.div`
 
   .txt-transform {
     text-transform: none;
-    }
+  }
 
-    .mr-0-10{
-        margin: 0 10px;
-    }
+  .mr-0-10 {
+    margin: 0 10px;
+  }
 
-    @media only screen and (min-width: 768px){
-      .center-block{
-        width: 50%;
-      }
-    }
+  .error-message {
+    text-align: center;
+    color: red;
+    font-size: medium;
+  }
 
-    @media only screen and (min-width: 992px){
-      .center-block{
-        width:30%;
-      }
+  @media only screen and (min-width: 768px) {
+    .center-block {
+      width: 50%;
+    }
+  }
+
+  @media only screen and (min-width: 992px) {
+    .center-block {
+      width: 30%;
     }
   }
 `;

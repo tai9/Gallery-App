@@ -95,6 +95,12 @@ export const Wrapper = styled.div`
     text-transform: none;
   }
 
+  .error-message {
+    text-align: center;
+    color: red;
+    font-size: medium;
+  }
+
   @media only screen and (min-width: 768px) {
     .center-block {
       width: 50%;

@@ -22,6 +22,7 @@ const logoAnimations = {
 
 const SignUp: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [message, setMessage] = useState<string>("");
   const [form, setForm] = useState<IFormValue>({
     email: "",
     password: "",
@@ -59,10 +60,8 @@ const SignUp: React.FC = () => {
         history.replace("/login");
       })
       .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorCode, errorMessage);
         setIsLoading(false);
+        setMessage(error.message);
       });
   };
 
@@ -102,6 +101,9 @@ const SignUp: React.FC = () => {
                   </motion.div>
                   <div className="form-separator">
                     <p>OR</p>
+                  </div>
+                  <div className="error-message">
+                    {message && <p>{message}! 😒😒</p>}
                   </div>
                   <form noValidate={false} onSubmit={handleSubmit}>
                     <div className="form-item">
