@@ -2,6 +2,7 @@ import { Grid } from "@material-ui/core";
 import { motion } from "framer-motion";
 import React from "react";
 import { Link } from "react-router-dom";
+import SearchCustom from "../common/SearchCustom/SearchCustom";
 import HeaderStyled from "./Header.styles";
 
 const logoAnimations = {
@@ -14,10 +15,10 @@ const Header: React.FC = () => {
   return (
     <HeaderStyled>
       <Grid container spacing={3}>
-        <Grid item xs={12}>
+        <Grid item xs={1}>
           <Link to="/">
             <motion.img
-              className=""
+              className="logo"
               src="images/logo.png"
               alt="logo"
               variants={logoAnimations}
@@ -26,6 +27,15 @@ const Header: React.FC = () => {
               whileTap="pressed"
             />
           </Link>
+        </Grid>
+        <Grid item xs={5} className="center">
+          <SearchCustom />
+        </Grid>
+        <Grid item xs={5}>
+          <div style={{ backgroundColor: "red" }}>NAV</div>
+        </Grid>
+        <Grid item xs={1}>
+          <div style={{ backgroundColor: "red" }}>Avt</div>
         </Grid>
       </Grid>
     </HeaderStyled>
