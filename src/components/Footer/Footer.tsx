@@ -1,9 +1,11 @@
 import React from "react";
+import { FooterStyled } from "./Footer.styles";
+
 const Footer = () => {
   return (
-    <div>
+    <FooterStyled>
       <p>Made with ❤ by Tai9.</p>
-    </div>
+    </FooterStyled>
   );
 };
 

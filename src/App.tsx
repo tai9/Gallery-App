@@ -81,8 +81,8 @@ const App: React.FC = () => {
             </Route>
           </Switch>
         </AnimatePresence>
-        <Footer />
       </Wrapper>
+      <Footer />
     </AppContext.Provider>
   );
 };
