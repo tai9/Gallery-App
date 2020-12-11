@@ -7,6 +7,7 @@ import {
   withStyles,
   createStyles,
 } from "@material-ui/core/styles";
+import { Tooltip } from "@material-ui/core";
 
 const StyledBadge = withStyles((theme: Theme) =>
   createStyles({
@@ -50,7 +51,17 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function BadgeAvatars() {
+const DEFAULT_URL = "https://material-ui.com/static/images/avatar/1.jpg";
+
+type Props = {
+  username: string | null;
+  photoURL?: string | null;
+};
+
+export default function BadgeAvatars({
+  username = "",
+  photoURL = DEFAULT_URL,
+}: Props) {
   const classes = useStyles();
 
   return (
@@ -63,10 +74,9 @@ export default function BadgeAvatars() {
         }}
         variant="dot"
       >
-        <Avatar
-          alt="Remy Sharp"
-          src="https://material-ui.com/static/images/avatar/1.jpg"
-        />
+        <Tooltip title={username!}>
+          <Avatar alt="Remy Sharp" src={photoURL ? photoURL : DEFAULT_URL} />
+        </Tooltip>
       </StyledBadge>
     </div>
   );
