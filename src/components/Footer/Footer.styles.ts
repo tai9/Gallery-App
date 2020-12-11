@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FooterStyled = styled.div`
+const FooterStyled = styled.div`
   position: fixed;
   left: 0;
   bottom: 0;
@@ -8,3 +8,5 @@ export const FooterStyled = styled.div`
   color: black;
   text-align: center;
 `;
+
+export default FooterStyled;
