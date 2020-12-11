@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Link, useHistory } from "react-router-dom";
 import firebase from "../../config/firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import Logo from "../common/Logo/Logo";
 
 interface IFormValue {
   email: string;
@@ -13,12 +14,6 @@ interface IFormValue {
   firstName: string;
   lastName: string;
 }
-
-const logoAnimations = {
-  rest: { y: 0 },
-  hover: { y: -10 },
-  pressed: { scale: 0.95 },
-};
 
 const SignUp: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -74,17 +69,7 @@ const SignUp: React.FC = () => {
               <div className="row">
                 <div className="center-block">
                   <div className="text-center">
-                    <a href="/">
-                      <motion.img
-                        className=""
-                        src="images/logo.png"
-                        alt="logo"
-                        variants={logoAnimations}
-                        initial="rest"
-                        whileHover="hover"
-                        whileTap="pressed"
-                      />
-                    </a>
+                    <Logo />
                     <h1>SIGN UP</h1>
                     <span>Already have an account? 🤔 </span>
                     <Link to="/login">Sign in</Link>

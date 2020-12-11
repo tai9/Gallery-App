@@ -7,6 +7,7 @@ const FooterStyled = styled.div`
   width: 100%;
   color: black;
   text-align: center;
+  background: white;
 `;
 
 export default FooterStyled;

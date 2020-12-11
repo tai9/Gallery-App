@@ -7,6 +7,7 @@ import { Link, useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import ForgotPassword from "./ForgotPassword";
+import Logo from "../common/Logo/Logo";
 interface IFormValue {
   email: string;
   password: string;
@@ -50,12 +51,6 @@ const Login: React.FC = () => {
       });
   };
 
-  const logoAnimations = {
-    rest: { y: 0 },
-    hover: { y: -10 },
-    pressed: { scale: 0.95 },
-  };
-
   return (
     <Wrapper>
       <Grid container className="h-100">
@@ -65,17 +60,7 @@ const Login: React.FC = () => {
               <div className="row">
                 <div className="center-block">
                   <div className="text-center">
-                    <Link to="/">
-                      <motion.img
-                        className=""
-                        src="images/logo.png"
-                        alt="logo"
-                        variants={logoAnimations}
-                        initial="rest"
-                        whileHover="hover"
-                        whileTap="pressed"
-                      />
-                    </Link>
+                    <Logo />
                     <h1>SIGN IN</h1>
                     <p>Hi there! 👋👋</p>
                   </div>
