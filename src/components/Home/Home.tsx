@@ -1,10 +1,11 @@
 import React from "react";
+import HomeStyled from "./Home.styles";
 
-const Home = () => {
+const Home: React.FC = () => {
   return (
-    <div>
+    <HomeStyled>
       <h1>Hi there! 👋👋</h1>
-    </div>
+    </HomeStyled>
   );
 };
 

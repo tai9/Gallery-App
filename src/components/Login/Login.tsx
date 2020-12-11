@@ -65,7 +65,7 @@ const Login: React.FC = () => {
               <div className="row">
                 <div className="center-block">
                   <div className="text-center">
-                    <a href="/">
+                    <Link to="/">
                       <motion.img
                         className=""
                         src="images/logo.png"
@@ -75,7 +75,7 @@ const Login: React.FC = () => {
                         whileHover="hover"
                         whileTap="pressed"
                       />
-                    </a>
+                    </Link>
                     <h1>SIGN IN</h1>
                     <p>Hi there! 👋👋</p>
                   </div>
