@@ -7,6 +7,11 @@ const HeaderStyled = styled.div`
   width: 100%;
   padding: 0 20px;
   box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+  min-width: 360px;
+
+  .MuiGrid-container {
+    justify-content: space-between;
+  }
 
   .logo {
     width: 100px;
@@ -16,6 +21,10 @@ const HeaderStyled = styled.div`
 
   .center {
     margin: auto 0;
+  }
+
+  .fit-content {
+    min-width: fit-content;
   }
 `;
 export default HeaderStyled;

@@ -23,6 +23,19 @@ const NavBarStyled = styled.div`
   .nav_link li a:hover {
     color: #969393;
   }
+
+  @media only screen and (min-width: 961px) {
+    .nav_link {
+      float: right;
+    }
+  }
+
+  @media only screen and (max-width: 960px) {
+    .nav_link {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
 `;
 
 export default NavBarStyled;

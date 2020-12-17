@@ -21,17 +21,17 @@ const Header: React.FC = () => {
 
   return (
     <HeaderStyled>
-      <Grid container spacing={3}>
-        <Grid item xs={1} className="center">
+      <Grid container>
+        <Grid item xs="auto" className="center fit-content">
           <Logo />
         </Grid>
-        <Grid item xs={5} className="center">
+        <Grid item xs={8} sm={4} md={5} lg={5} className="center">
           <SearchCustom />
         </Grid>
-        <Grid item xs={5} className="center">
+        <Grid item xs={9} sm={4} md={4} lg={5} className="center">
           <Navbar />
         </Grid>
-        <Grid item xs={1} className="center">
+        <Grid item xs="auto" className="center">
           <BadgeAvatars
             username={user && user.displayName ? user.displayName : "Mark"}
             photoURL={user ? user.photoURL : ""}
