@@ -5,6 +5,7 @@ import Logo from "../common/Logo/Logo";
 import SearchCustom from "../common/SearchCustom/SearchCustom";
 import HeaderStyled from "./Header.styles";
 import firebase from "../../config/firebase";
+import Navbar from "../Navbar/Navbar";
 
 const Header: React.FC = () => {
   const [user, setUser] = useState<firebase.User>(null!);
@@ -13,7 +14,6 @@ const Header: React.FC = () => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log(user);
-
         setUser(user);
       }
     });
@@ -29,7 +29,7 @@ const Header: React.FC = () => {
           <SearchCustom />
         </Grid>
         <Grid item xs={5} className="center">
-          <div style={{ backgroundColor: "red" }}>NAV</div>
+          <Navbar />
         </Grid>
         <Grid item xs={1} className="center">
           <BadgeAvatars
