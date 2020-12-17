@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import NavBarStyled from "./Navbar.styles";
 
 const Navbar: React.FC = () => {
@@ -7,13 +8,13 @@ const Navbar: React.FC = () => {
       <nav>
         <ul className="nav_link">
           <li>
-            <a href="/home">Home</a>
+            <Link to="/home">Home</Link>
           </li>
           <li>
-            <a href="/about">About</a>
+            <Link to="/about">About</Link>
           </li>
           <li>
-            <a href="/contact">Contact</a>
+            <Link to="/contact">Contact</Link>
           </li>
         </ul>
       </nav>
