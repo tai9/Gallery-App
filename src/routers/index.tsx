@@ -12,6 +12,12 @@ export default [
     protected: null,
   },
   {
+    path: "/home",
+    exact: true,
+    component: () => <Home />,
+    protected: null,
+  },
+  {
     path: "/login",
     exact: true,
     component: () => <Login />,
@@ -21,6 +27,18 @@ export default [
     path: "/signup",
     exact: true,
     component: () => <SignUp />,
+    protected: "guest",
+  },
+  {
+    path: "/about",
+    exact: true,
+    component: () => <div>About</div>,
+    protected: "auth",
+  },
+  {
+    path: "/contact",
+    exact: true,
+    component: () => <div>Contact</div>,
     protected: "guest",
   },
 ];
