@@ -80,9 +80,9 @@ const App: React.FC = () => {
               <NotFound />
             </Route>
           </Switch>
-          <Link to="/login" onClick={() => firebase.auth().signOut()}>
+          {/* <Link to="/login" onClick={() => firebase.auth().signOut()}>
             LOGOUT
-          </Link>
+          </Link> */}
         </AnimatePresence>
       </Wrapper>
       <Footer />

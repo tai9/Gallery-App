@@ -8,6 +8,8 @@ const HeaderStyled = styled.div`
   padding: 0 20px;
   box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.08);
   min-width: 360px;
+  background: white;
+  z-index: 999;
 
   .MuiGrid-container {
     justify-content: space-between;
