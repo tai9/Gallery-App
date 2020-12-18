@@ -4,7 +4,12 @@ import LikeButtonAnimate from "./LikeButton.styles";
 const LikeButton: React.FC<{ index: string }> = ({ index }) => {
   return (
     <LikeButtonAnimate className="like-button">
-      <input type="checkbox" className="checkbox" id={index} />
+      <input
+        key={Math.random().toLocaleString()}
+        type="checkbox"
+        className="checkbox"
+        id={index}
+      />
       <label htmlFor={index}>
         <svg
           id="heart-svg"
@@ -14,7 +19,7 @@ const LikeButton: React.FC<{ index: string }> = ({ index }) => {
           <g
             id="Group"
             fill="none"
-            fill-rule="evenodd"
+            // fill-rule="evenodd"
             transform="translate(467 392)"
           >
             <path

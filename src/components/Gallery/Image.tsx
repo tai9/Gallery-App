@@ -8,9 +8,10 @@ import ImageStyled from "./Image.styles";
 type ImageProps = {
   src: string;
   alt: string;
+  handleRemove?: () => any;
 };
 
-const Image: React.FC<ImageProps> = ({ src, alt }) => {
+const Image: React.FC<ImageProps> = ({ src, alt, handleRemove }) => {
   return (
     <ImageStyled>
       <LikeButton index={src} />
@@ -18,6 +19,7 @@ const Image: React.FC<ImageProps> = ({ src, alt }) => {
         className="remove-button"
         whileTap={{ scale: 1.5 }}
         whileHover={{ scale: 1.2 }}
+        onClick={handleRemove}
       >
         <IconButton>
           <ClearIcon fontSize="large" />

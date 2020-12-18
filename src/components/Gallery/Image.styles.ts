@@ -7,7 +7,7 @@ const ImageStyled = styled.div`
   margin: 5px;
 
   :hover {
-    border: 2px solid rgb(170 184 194);
+    border: 1px solid rgb(170 184 194);
 
     .remove-button,
     .like-button {

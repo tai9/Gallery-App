@@ -32,14 +32,50 @@ const Gallery = () => {
           "https://images.unsplash.com/photo-1608161316733-7ffcbc8d1aa0?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
         alt: "",
       },
+      {
+        src: "https://www.w3schools.com/w3images/nature.jpg",
+        alt: "",
+      },
+      {
+        src: "https://www.w3schools.com/w3images/rocks.jpg",
+        alt: "",
+      },
+      {
+        src: "https://www.w3schools.com/w3images/falls2.jpg",
+        alt: "",
+      },
+      {
+        src: "https://www.w3schools.com/w3images/underwater.jpg",
+        alt: "",
+      },
+      {
+        src: "https://www.w3schools.com/w3images/paris.jpg",
+        alt: "",
+      },
     ]);
   }, []);
 
+  const handleRemove = (index: number) => {
+    setImages([
+      ...images.slice(0, index),
+      ...images.slice(index + 1, images.length),
+    ]);
+  };
+
   return (
     <GalleryStyled>
-      {images.map((image, index) => {
-        return <Image key={index} src={image.src} alt={image.alt} />;
-      })}
+      <section id="photos">
+        {images.map((image, index) => {
+          return (
+            <Image
+              key={index}
+              src={image.src}
+              alt={image.alt}
+              handleRemove={() => handleRemove(index)}
+            />
+          );
+        })}
+      </section>
     </GalleryStyled>
   );
 };
