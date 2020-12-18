@@ -1,11 +1,11 @@
 import React from "react";
 import LikeButtonAnimate from "./LikeButton.styles";
 
-const LikeButton: React.FC = () => {
+const LikeButton: React.FC<{ index: string }> = ({ index }) => {
   return (
     <LikeButtonAnimate className="like-button">
-      <input type="checkbox" className="checkbox" id="checkbox" />
-      <label htmlFor="checkbox">
+      <input type="checkbox" className="checkbox" id={index} />
+      <label htmlFor={index}>
         <svg
           id="heart-svg"
           viewBox="467 392 58 57"
