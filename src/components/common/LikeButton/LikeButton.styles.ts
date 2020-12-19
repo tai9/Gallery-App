@@ -7,6 +7,7 @@ const LikeButton = styled.div`
     width: 60px;
     position: absolute;
     right: 60px;
+    z-index: 10;
   }
 
   svg #heart {

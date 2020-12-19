@@ -26,7 +26,10 @@ const Image: React.FC<ImageProps> = ({ src, alt, handleRemove }) => {
         </IconButton>
       </motion.div>
 
-      <img src={src} alt={alt} />
+      <motion.img className="image" src={src} alt={alt} />
+      <div className="overlay">
+        <div className="text">Hello World</div>
+      </div>
     </ImageStyled>
   );
 };
