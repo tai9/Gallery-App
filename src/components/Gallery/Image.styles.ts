@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const ImageStyled = styled.div`
   position: relative;
+  display: inline-block;
   border: 1px solid #d7d7d7;
   padding: 5px;
   margin: 5px;
