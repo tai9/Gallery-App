@@ -1,5 +1,5 @@
-# Hooks Movie App
-This is the demo application using React Hooks!!!
+# Gallery App
+This is the demo application using React TypeScript!!!
 
 # Getting Started
 These instructions should get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -35,7 +35,7 @@ npm start or yarn start
 The app can be deployed using either heroku or Netlify
 
 # Built With
-- Javascript
+- TypeScript
 - React - (UI library)
 
 # Contribution
