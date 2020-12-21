@@ -14,13 +14,17 @@ type ImageProps = {
   likes: number;
 };
 
-export const useFetchImages = () => {
-  const [images, setImages] = useState<ImageProps[]>();
+export const useFetchImages = (page: number) => {
+  const [images, setImages] = useState<ImageProps[]>([]);
   useEffect(() => {
-    Axios.get(`${url}/?client_id=${secret}`).then((res) => {
-      setImages(res.data);
-    });
-  }, []);
+    Axios.get(`${url}/?client_id=${secret}&page=${page}`)
+      .then((res) => {
+        setImages([...images, ...res.data]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [page]);
 
   return [images, setImages] as const;
 };

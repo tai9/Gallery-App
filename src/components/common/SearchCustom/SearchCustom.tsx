@@ -3,8 +3,16 @@ import { useStyles } from "./SearchCustom.styles";
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 
-const SearchCustom = () => {
+type Props = {
+  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+const SearchCustom: React.FC<Props> = ({ handleChange }) => {
   const classes = useStyles();
+
+  handleChange = (event) => {
+    console.log(event.currentTarget.value);
+  };
   return (
     <div className={classes.search}>
       <div className={classes.searchIcon}>
@@ -17,6 +25,7 @@ const SearchCustom = () => {
           root: classes.inputRoot,
           input: classes.inputInput,
         }}
+        onChange={handleChange}
       />
     </div>
   );

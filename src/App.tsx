@@ -44,7 +44,8 @@ const App: React.FC = () => {
     <AppContext.Provider value={{ isLoggedIn, user }}>
       <GlobalStyle />
 
-      {isLoggedIn && <Header />}
+      {/* {isLoggedIn && <Header />} */}
+      <Header />
       <Wrapper>
         <AnimatePresence exitBeforeEnter initial={false}>
           <Switch key={location.pathname} location={location}>

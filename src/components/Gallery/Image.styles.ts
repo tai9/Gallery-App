@@ -65,7 +65,7 @@ const ImageStyled = styled.div`
   .text {
     color: white;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1em;
     position: absolute;
     top: 50%;
     left: 50%;
