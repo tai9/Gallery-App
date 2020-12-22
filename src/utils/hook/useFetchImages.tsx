@@ -1,7 +1,7 @@
-import Axios from "axios";
+import Axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 
-const url = process.env.REACT_APP_UNSPLASH_URL;
+const api = process.env.REACT_APP_UNSPLASH_URL;
 const secret = process.env.REACT_APP_UNSPLASH_KEY;
 
 type ImageProps = {
@@ -19,14 +19,23 @@ export const useFetchImages = (page: number, key: string) => {
 
   const [images, setImages] = useState<ImageProps[]>([]);
   useEffect(() => {
-    Axios.get(`${url}/?client_id=${secret}&page=${page}`)
+    const url = key === "" ? "photos?" : `search/photos/?query=${key}&`;
+    Axios.get(`${api}/${url}client_id=${secret}&page=${page}`)
       .then((res) => {
-        setImages([...images, ...res.data]);
+        key === "" ? fetchRandom(res) : fetchSearch(res);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [page]);
+  }, [page, key]);
+
+  const fetchRandom = (res: AxiosResponse<any>) => {
+    setImages([...images, ...res.data]);
+  };
+
+  const fetchSearch = (res: AxiosResponse<any>) => {
+    setImages([...res.data.results]);
+  };
 
   return [images, setImages] as const;
 };
