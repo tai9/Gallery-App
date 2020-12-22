@@ -14,7 +14,9 @@ type ImageProps = {
   likes: number;
 };
 
-export const useFetchImages = (page: number) => {
+export const useFetchImages = (page: number, key: string) => {
+  console.log(key);
+
   const [images, setImages] = useState<ImageProps[]>([]);
   useEffect(() => {
     Axios.get(`${url}/?client_id=${secret}&page=${page}`)

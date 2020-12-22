@@ -1,15 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { useFetchImages } from "../../utils/useFetchImages";
+import { useFetchImages } from "../../utils/hook/useFetchImages";
 import GalleryStyled from "./Gallery.styles";
 import Image from "./Image";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Loading from "../../pages/Loading/Loading";
+// import Loading from "../../pages/Loading/Loading";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { RootState } from "../../reducers";
+import { connect } from "react-redux";
 
-const Gallery = () => {
-  const [page, setPage] = useState(1);
-  const [images, setImages] = useFetchImages(page);
+const mapStateToProps = ({ gallery }: RootState) => {
+  return {
+    searchKey: gallery.searchKey,
+  };
+};
+
+type ReduxType = ReturnType<typeof mapStateToProps>;
+
+const Gallery: React.FC<ReduxType> = ({ searchKey }) => {
+  const [page, setPage] = useState<number>(1);
+  const [key, setKey] = useState<string>("");
+  const [images, setImages] = useFetchImages(page, key);
   const [columnCount, setColumnCount] = useState(5);
+
+  useEffect(() => {
+    setKey(searchKey);
+  }, [searchKey]);
 
   useEffect(() => {
     if (images.length !== 0) {
@@ -62,4 +77,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default connect(mapStateToProps)(Gallery);
