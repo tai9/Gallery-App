@@ -4,20 +4,20 @@ import { useEffect, useState } from "react";
 const api = process.env.REACT_APP_UNSPLASH_URL;
 const secret = process.env.REACT_APP_UNSPLASH_KEY;
 
-type ImageProps = {
-  id: string;
+export type ImageApiProps = {
+  id?: string;
   description: string;
   alt_description: string;
   urls: {
     regular: string;
   };
-  likes: number;
+  likes?: number;
 };
 
 export const useFetchImages = (page: number, key: string) => {
   console.log(key);
 
-  const [images, setImages] = useState<ImageProps[]>([]);
+  const [images, setImages] = useState<ImageApiProps[]>([]);
   useEffect(() => {
     const url = key === "" ? "photos?" : `search/photos/?query=${key}&`;
     Axios.get(`${api}/${url}client_id=${secret}&page=${page}`)
@@ -34,7 +34,9 @@ export const useFetchImages = (page: number, key: string) => {
   };
 
   const fetchSearch = (res: AxiosResponse<any>) => {
-    setImages([...res.data.results]);
+    page > 1
+      ? setImages([...images, ...res.data.results])
+      : setImages([...res.data.results]);
   };
 
   return [images, setImages] as const;

@@ -4,17 +4,20 @@ import React from "react";
 import LikeButton from "../common/LikeButton/LikeButton";
 import ClearIcon from "@material-ui/icons/Clear";
 import ImageStyled from "./Image.styles";
+import { ImageApiProps } from "../../utils/hook/useFetchImages";
 
 type ImageProps = {
-  src: string;
-  alt: string;
   handleRemove?: () => any;
 };
 
-const Image: React.FC<ImageProps> = ({ src, alt, handleRemove }) => {
+const Image: React.FC<ImageApiProps & ImageProps> = ({
+  urls,
+  alt_description,
+  handleRemove,
+}) => {
   return (
     <ImageStyled>
-      <LikeButton index={src} />
+      <LikeButton index={urls.regular} />
       <motion.div
         className="remove-button"
         whileTap={{ scale: 1.5 }}
@@ -26,9 +29,9 @@ const Image: React.FC<ImageProps> = ({ src, alt, handleRemove }) => {
         </IconButton>
       </motion.div>
 
-      <motion.img className="image" src={src} alt={alt} />
+      <motion.img className="image" src={urls.regular} alt={alt_description} />
       <div className="overlay">
-        <div className="text">Hello World</div>
+        <div className="text">Hi! 👋👋</div>
       </div>
     </ImageStyled>
   );

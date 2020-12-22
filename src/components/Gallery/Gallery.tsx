@@ -24,6 +24,7 @@ const Gallery: React.FC<ReduxType> = ({ searchKey }) => {
 
   useEffect(() => {
     setKey(searchKey);
+    setPage(1);
   }, [searchKey]);
 
   useEffect(() => {
@@ -66,8 +67,9 @@ const Gallery: React.FC<ReduxType> = ({ searchKey }) => {
           return (
             <Image
               key={index}
-              src={image.urls.regular}
-              alt={image.alt_description}
+              urls={image.urls}
+              alt_description={image.alt_description}
+              description={image.description}
               handleRemove={() => handleRemove(index)}
             />
           );
