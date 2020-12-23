@@ -6,17 +6,21 @@ import ClearIcon from "@material-ui/icons/Clear";
 import ImageStyled from "./Image.styles";
 import { ImageApiProps } from "../../utils/hook/useFetchImages";
 
-type ImageProps = {
+export type ImageProps = {
   handleRemove?: () => any;
-};
+  ref?: any;
+  variants?: any;
+  custom?: any;
+} & ImageApiProps;
 
-const Image: React.FC<ImageApiProps & ImageProps> = ({
+const Image: React.FC<ImageProps> = ({
   urls,
   alt_description,
   handleRemove,
+  ...props
 }) => {
   return (
-    <ImageStyled>
+    <ImageStyled {...props}>
       <LikeButton index={urls.regular} />
       <motion.div
         className="remove-button"

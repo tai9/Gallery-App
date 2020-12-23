@@ -10,13 +10,5 @@ type RouteProps = {
 };
 
 export default function GuestRoute({ children, ...rest }: RouteProps) {
-  const { isLoggedIn } = useContext(AppContext);
-
-  if (!isLoggedIn) return <AnimatedRoute {...rest}>{children}</AnimatedRoute>;
-
-  return (
-    <AnimatedRoute>
-      <Redirect to="/" />;
-    </AnimatedRoute>
-  );
+  return <AnimatedRoute {...rest}>{children}</AnimatedRoute>;
 }
