@@ -1,24 +1,12 @@
 import { Grid } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
-import BadgeAvatars from "../common/BadgeAvatars/BadgeAvatars";
+import React from "react";
 import Logo from "../common/Logo/Logo";
 import SearchCustom from "../common/SearchCustom/SearchCustom";
 import HeaderStyled from "./Header.styles";
-import firebase from "../../config/firebase";
 import Navbar from "../Navbar/Navbar";
+import ProfileMenu from "../common/ProfileMenu/ProfileMenu";
 
 const Header: React.FC = () => {
-  const [user, setUser] = useState<firebase.User>(null!);
-
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        console.log(user);
-        setUser(user);
-      }
-    });
-  }, []);
-
   return (
     <HeaderStyled>
       <Grid container>
@@ -32,10 +20,7 @@ const Header: React.FC = () => {
           <Navbar />
         </Grid>
         <Grid item xs="auto" className="center">
-          <BadgeAvatars
-            username={user && user.displayName ? user.displayName : "Mark"}
-            photoURL={user ? user.photoURL : ""}
-          />
+          <ProfileMenu />
         </Grid>
       </Grid>
     </HeaderStyled>
