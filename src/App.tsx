@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { GlobalStyle, Wrapper } from "./App.styles";
-import { Switch, Route, useLocation, Link } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 import routes from "./routers";
 import Footer from "./components/Footer/Footer";
 import firebase from "./config/firebase";
@@ -24,19 +24,12 @@ const App: React.FC = () => {
     const unregisterAuthObserver = firebase
       .auth()
       .onAuthStateChanged((user) => {
-        console.log(user);
-
         setUser(user as firebase.UserInfo);
         setIsLoggedIn(!!user);
         setIsLoading(false);
       });
-    return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
+    return () => unregisterAuthObserver();
   }, []);
-
-  // const handleLogout = () => {
-  //   firebase.auth().signOut();
-  //   setIsLoggedIn(false);
-  // };
 
   if (isLoading) return <Loading />;
 

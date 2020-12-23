@@ -1,4 +1,5 @@
 import React from "react";
+import About from "../components/About/About";
 import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
 import SignUp from "../components/SignUp/SignUp";
@@ -7,12 +8,6 @@ import SignUp from "../components/SignUp/SignUp";
 export default [
   {
     path: "/",
-    exact: true,
-    component: () => <Home />,
-    protected: null,
-  },
-  {
-    path: "/home",
     exact: true,
     component: () => <Home />,
     protected: null,
@@ -32,13 +27,13 @@ export default [
   {
     path: "/about",
     exact: true,
-    component: () => <div>About</div>,
+    component: () => <About title="About" />,
     protected: "guest",
   },
   {
     path: "/contact",
     exact: true,
-    component: () => <div>Contact</div>,
+    component: () => <About title="Contact" />,
     protected: "guest",
   },
 ];

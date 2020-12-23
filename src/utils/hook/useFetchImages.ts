@@ -15,8 +15,6 @@ export type ImageApiProps = {
 };
 
 export const useFetchImages = (page: number, key: string) => {
-  console.log(key);
-
   const [images, setImages] = useState<ImageApiProps[]>([]);
   useEffect(() => {
     const url = key === "" ? "photos?" : `search/photos/?query=${key}&`;
