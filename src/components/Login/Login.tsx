@@ -1,4 +1,4 @@
-import { Button, Grid } from "@material-ui/core";
+import { Backdrop, Button, CircularProgress, Grid } from "@material-ui/core";
 import React, { ChangeEvent, useState, FormEvent } from "react";
 import { Wrapper } from "./Login.styles";
 import TextField from "@material-ui/core/TextField/TextField";
@@ -7,7 +7,6 @@ import { Link, useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import ForgotPassword from "./ForgotPassword";
-import Logo from "../common/Logo/Logo";
 interface IFormValue {
   email: string;
   password: string;
@@ -17,7 +16,7 @@ const Login: React.FC = () => {
   const history = useHistory();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpenForgotForm, setIsOpenForgotForm] = useState<boolean>(false);
   const [form, setForm] = useState<IFormValue>({ email: "", password: "" });
 
   // Configure FirebaseUI.
@@ -113,13 +112,15 @@ const Login: React.FC = () => {
                       <Button
                         className="text-lower"
                         size="small"
-                        onClick={() => setIsOpen(!isOpen)}
+                        onClick={() => setIsOpenForgotForm(!isOpenForgotForm)}
                       >
                         Forgot your password?
                       </Button>
                       <ForgotPassword
-                        isOpen={isOpen}
-                        handleClose={() => setIsOpen(!isOpen)}
+                        isOpen={isOpenForgotForm}
+                        handleClose={() =>
+                          setIsOpenForgotForm(!isOpenForgotForm)
+                        }
                       />
                     </div>
                     <motion.div
@@ -147,6 +148,9 @@ const Login: React.FC = () => {
             </div>
           </div>
         </Grid>
+        <Backdrop className="backdrop" open={isLoading}>
+          <CircularProgress color="inherit" />
+        </Backdrop>
       </Grid>
     </Wrapper>
   );

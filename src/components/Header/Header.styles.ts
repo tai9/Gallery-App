@@ -15,6 +15,18 @@ const HeaderStyled = styled.div`
     justify-content: space-between;
   }
 
+  a {
+    text-decoration: none;
+  }
+
+  .btn-login .MuiButton-root {
+    font-size: inherit;
+    border: 1px solid #767676;
+    color: #767676;
+    padding: 3px 16px;
+    text-transform: none;
+  }
+
   .logo {
     width: 100px;
     height: 50px;

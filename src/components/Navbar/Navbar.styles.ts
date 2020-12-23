@@ -18,10 +18,11 @@ const NavBarStyled = styled.div`
 
   .nav_link li a {
     transition: all 0.3s ease 0s;
+    color: #767676;
   }
 
   .nav_link li a:hover {
-    color: #969393;
+    color: #000;
   }
 
   @media only screen and (min-width: 961px) {

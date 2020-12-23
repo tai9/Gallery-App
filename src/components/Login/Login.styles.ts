@@ -4,8 +4,13 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 
+  .backdrop{
+    color: #fff;
+    z-index: 1201;
+  }
+
   a:visited{
-    color:black
+    color:#000
   }
 
   .form-item .MuiFormLabel-root,

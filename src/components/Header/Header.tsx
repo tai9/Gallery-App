@@ -1,12 +1,16 @@
-import { Grid } from "@material-ui/core";
-import React from "react";
+import { Button, Grid } from "@material-ui/core";
+import React, { useContext } from "react";
 import Logo from "../common/Logo/Logo";
 import SearchCustom from "../common/SearchCustom/SearchCustom";
 import HeaderStyled from "./Header.styles";
 import Navbar from "../Navbar/Navbar";
 import ProfileMenu from "../common/ProfileMenu/ProfileMenu";
+import AppContext from "../../store/AppContext";
+import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
+  const { isLoggedIn } = useContext(AppContext);
+
   return (
     <HeaderStyled>
       <Grid container>
@@ -20,7 +24,13 @@ const Header: React.FC = () => {
           <Navbar />
         </Grid>
         <Grid item xs="auto" className="center">
-          <ProfileMenu />
+          {isLoggedIn ? (
+            <ProfileMenu />
+          ) : (
+            <Link to="/login" className="btn-login">
+              <Button>Login</Button>
+            </Link>
+          )}
         </Grid>
       </Grid>
     </HeaderStyled>
