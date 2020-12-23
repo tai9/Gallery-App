@@ -21,7 +21,7 @@ const Header: React.FC = () => {
           <SearchCustom />
         </Grid>
         <Grid item xs={9} sm={4} md={4} lg={5} className="center">
-          <Navbar />
+          <Navbar alignment="horizontal" />
         </Grid>
         <Grid item xs="auto" className="center">
           {isLoggedIn ? (

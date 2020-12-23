@@ -2,9 +2,13 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import NavBarStyled from "./Navbar.styles";
 
-const Navbar: React.FC = () => {
+export type Props = {
+  alignment: "horizontal" | "vertical";
+};
+
+const Navbar: React.FC<Props> = ({ alignment }) => {
   return (
-    <NavBarStyled>
+    <NavBarStyled alignment={alignment}>
       <nav>
         <ul className="nav_link">
           <li>

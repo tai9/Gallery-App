@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { Props } from "./Navbar";
 
-const NavBarStyled = styled.div`
+const NavBarStyled = styled.div<Props>`
   li,
   a {
     color: #000000;
@@ -13,7 +14,8 @@ const NavBarStyled = styled.div`
   }
 
   .nav_link li {
-    display: inline-block;
+    display: ${(props) =>
+      props.alignment === "horizontal" ? "inline-block" : "block"};
     padding: 0 0.5rem;
   }
 
