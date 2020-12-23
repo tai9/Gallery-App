@@ -31,7 +31,7 @@ const Image: React.FC<ImageApiProps & ImageProps> = ({
 
       <motion.img className="image" src={urls.regular} alt={alt_description} />
       <div className="overlay">
-        <div className="text">Hi! 👋👋</div>
+        <div className="text">Hello World!</div>
       </div>
     </ImageStyled>
   );

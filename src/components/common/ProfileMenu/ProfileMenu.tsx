@@ -11,7 +11,11 @@ import firebase from "../../../config/firebase";
 import ProfileMenuStyled from "./ProfileMenu.Styles";
 import { Divider } from "@material-ui/core";
 
-const ProfileMenu = () => {
+export type ProfileProps = {
+  handleSignOut?: () => void;
+};
+
+const ProfileMenu = ({ handleSignOut }: ProfileProps) => {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef<HTMLButtonElement>(null);
   const [user, setUser] = useState<firebase.User>(null!);
@@ -55,6 +59,11 @@ const ProfileMenu = () => {
     prevOpen.current = open;
   }, [open]);
 
+  handleSignOut = () => {
+    firebase.auth().signOut();
+    setOpen(false);
+  };
+
   return (
     <ProfileMenuStyled>
       <Button
@@ -94,7 +103,7 @@ const ProfileMenu = () => {
                   <MenuItem onClick={handleClose}>Profile</MenuItem>
                   <MenuItem onClick={handleClose}>My account</MenuItem>
                   <Divider />
-                  <MenuItem onClick={handleClose}>Logout</MenuItem>
+                  <MenuItem onClick={handleSignOut}>Logout</MenuItem>
                 </MenuList>
               </ClickAwayListener>
             </Paper>
