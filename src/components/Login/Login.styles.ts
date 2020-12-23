@@ -4,6 +4,16 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 
+  a:visited{
+    color:black
+  }
+
+  .form-item .MuiFormLabel-root,
+  .form-item .MuiInputBase-root {
+      font-size: larger;
+    }
+  }
+
   .h-100 {
     height: 100%;
   }

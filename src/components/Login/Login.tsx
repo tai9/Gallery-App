@@ -60,7 +60,6 @@ const Login: React.FC = () => {
               <div className="row">
                 <div className="center-block">
                   <div className="text-center">
-                    <Logo />
                     <h1>SIGN IN</h1>
                     <p>Hi there! 👋👋</p>
                   </div>

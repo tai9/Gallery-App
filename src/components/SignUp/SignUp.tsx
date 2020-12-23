@@ -69,7 +69,6 @@ const SignUp: React.FC = () => {
               <div className="row">
                 <div className="center-block">
                   <div className="text-center">
-                    <Logo />
                     <h1>SIGN UP</h1>
                     <span>Already have an account? 🤔 </span>
                     <Link to="/login">Sign in</Link>

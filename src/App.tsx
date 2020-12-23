@@ -43,8 +43,6 @@ const App: React.FC = () => {
   return (
     <AppContext.Provider value={{ isLoggedIn, user }}>
       <GlobalStyle />
-
-      {/* {isLoggedIn && <Header />} */}
       <Header />
       <Wrapper>
         <AnimatePresence exitBeforeEnter initial={false}>
@@ -81,9 +79,6 @@ const App: React.FC = () => {
               <NotFound />
             </Route>
           </Switch>
-          {/* <Link to="/login" onClick={() => firebase.auth().signOut()}>
-            LOGOUT
-          </Link> */}
         </AnimatePresence>
       </Wrapper>
       <Footer />
