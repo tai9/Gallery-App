@@ -11,6 +11,14 @@ const HeaderStyled = styled.div`
   background: white;
   z-index: 999;
 
+  .active {
+    .MuiButton-root {
+      color: #000 !important;
+      border: 1px solid #000 !important;
+      border-bottom: 3px solid #000 !important;
+    }
+  }
+
   .MuiGrid-container {
     justify-content: space-between;
   }
@@ -23,7 +31,8 @@ const HeaderStyled = styled.div`
     font-size: inherit;
     border: 1px solid #767676;
     color: #767676;
-    padding: 3px 16px;
+    padding: 0.5rem;
+    line-height: normal;
     text-transform: none;
   }
 

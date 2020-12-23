@@ -9,11 +9,12 @@ const NavBarStyled = styled.div`
 
   .nav_link {
     list-style: none;
+    border-right: 1px solid #767676;
   }
 
   .nav_link li {
     display: inline-block;
-    padding: 0px 20px;
+    padding: 0 0.5rem;
   }
 
   .nav_link li a {
@@ -23,6 +24,28 @@ const NavBarStyled = styled.div`
 
   .nav_link li a:hover {
     color: #000;
+
+    .nav_link_item {
+      border-color: #000;
+    }
+  }
+
+  .nav_link_item {
+    padding: 0.5rem;
+    border: 1px solid #767676;
+    border-radius: 4px;
+  }
+
+  .active {
+    div {
+      color: #000;
+      border: 1px solid #000;
+      border-bottom: 3px solid #000;
+    }
+  }
+
+  .selected {
+    color: red;
   }
 
   @media only screen and (min-width: 961px) {

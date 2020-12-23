@@ -6,7 +6,7 @@ import HeaderStyled from "./Header.styles";
 import Navbar from "../Navbar/Navbar";
 import ProfileMenu from "../common/ProfileMenu/ProfileMenu";
 import AppContext from "../../store/AppContext";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header: React.FC = () => {
   const { isLoggedIn } = useContext(AppContext);
@@ -27,9 +27,9 @@ const Header: React.FC = () => {
           {isLoggedIn ? (
             <ProfileMenu />
           ) : (
-            <Link to="/login" className="btn-login">
+            <NavLink to="/login" className="btn-login" activeClassName="active">
               <Button>Login</Button>
-            </Link>
+            </NavLink>
           )}
         </Grid>
       </Grid>

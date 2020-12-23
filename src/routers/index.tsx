@@ -33,7 +33,7 @@ export default [
     path: "/about",
     exact: true,
     component: () => <div>About</div>,
-    protected: "auth",
+    protected: "guest",
   },
   {
     path: "/contact",
