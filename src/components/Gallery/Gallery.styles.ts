@@ -30,7 +30,7 @@ const GalleryStyled = styled.div<Porps>`
       column-count: ${(props) => props.columCount - 2};
     }
   }
-  @media (max-width: 800px) {
+  @media (max-width: 861px) {
     .photos {
       -moz-column-count: 2;
       -webkit-column-count: 2;

@@ -20,7 +20,7 @@ const Gallery: React.FC<ReduxType> = ({ searchKey }) => {
   const [page, setPage] = useState<number>(1);
   const [key, setKey] = useState<string>("");
   const [images, setImages] = useFetchImages(page, key);
-  const [columnCount, setColumnCount] = useState(5);
+  const [columnCount, setColumnCount] = useState(4);
 
   useEffect(() => {
     setKey(searchKey);

@@ -28,7 +28,7 @@ export const useFetchImages = (page: number, key: string) => {
   }, [page, key]);
 
   const fetchRandom = (res: AxiosResponse<any>) => {
-    setImages([...images, ...res.data]);
+    page > 1 ? setImages([...images, ...res.data]) : setImages(res.data);
   };
 
   const fetchSearch = (res: AxiosResponse<any>) => {
