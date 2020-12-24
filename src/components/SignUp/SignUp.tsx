@@ -1,4 +1,4 @@
-import { Button, Grid } from "@material-ui/core";
+import { Backdrop, CircularProgress, Button, Grid } from "@material-ui/core";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { Wrapper } from "./SignUp.styles";
 import TextField from "@material-ui/core/TextField/TextField";
@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { Link, useHistory } from "react-router-dom";
 import firebase from "../../config/firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import Logo from "../common/Logo/Logo";
 
 interface IFormValue {
   email: string;
@@ -167,6 +166,9 @@ const SignUp: React.FC = () => {
             </div>
           </div>
         </Grid>
+        <Backdrop className="backdrop" open={isLoading}>
+          <CircularProgress color="inherit" />
+        </Backdrop>
       </Grid>
     </Wrapper>
   );
