@@ -52,6 +52,6 @@ Please read the [CONTRIBUTING.md](#) file (Soon to be added) to see how you can 
 Tan Tai
 
 # Contact
-- <img src="https://img.icons8.com/doodle/48/000000/gmail.png"/> Email: tantai.it95@gmail.com
-- <img src="https://img.icons8.com/doodle/48/000000/facebook-new.png"/> Facebook: https://www.facebook.com/tantai.it.95
-- <img src="https://img.icons8.com/doodle/48/000000/twitter.png"/> Twitter: https://twitter.com/Mark51030767
+- <img src="https://img.icons8.com/doodle/16/000000/gmail.png"/> Email: tantai.it95@gmail.com
+- <img src="https://img.icons8.com/doodle/16/000000/facebook-new.png"/> Facebook: https://www.facebook.com/tantai.it.95
+- <img src="https://img.icons8.com/doodle/16/000000/twitter.png"/> Twitter: https://twitter.com/Mark51030767
