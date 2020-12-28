@@ -1,6 +1,13 @@
 # Gallery App
 This is the demo application using React TypeScript!!!
 
+# Demo
+https://gallery-ts-app.netlify.app/
+
+# Login Credentials
+- Email: tantai@gmail.com
+- Password: 123456
+
 # Getting Started
 These instructions should get you a copy of the project up and running on your local machine for development and testing purposes.
 
@@ -42,4 +49,9 @@ The app can be deployed using either heroku or Netlify
 Please read the [CONTRIBUTING.md](#) file (Soon to be added) to see how you can contribute and add more features to the project.
 
 # Authors
-TODO: Add the Authors
+Tan Tai
+
+# Contact
+- <img src="https://img.icons8.com/doodle/48/000000/gmail.png"/> Email: tantai.it95@gmail.com
+- <img src="https://img.icons8.com/doodle/48/000000/facebook-new.png"/> Facebook: https://www.facebook.com/tantai.it.95
+- <img src="https://img.icons8.com/doodle/48/000000/twitter.png"/> Twitter: https://twitter.com/Mark51030767
